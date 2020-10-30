@@ -7,6 +7,7 @@ const helmet = require("helmet");
 const csp = require('express-csp');
 const hpp = require("hpp");
 const app = express();
+const compression = require('compression')
 const cookieParser = require('cookie-parser')
 const AppError = require("./utils/AppError");
 const globalErrorHandler = require("./controllers/errorControllers");
@@ -112,7 +113,7 @@ app.use(mongoSanitize());
 app.use(xss());
 
 //Preven parameter pollution
-
+app.use(compression())
 app.use(
   hpp({
     whitelist: [
