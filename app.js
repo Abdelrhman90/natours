@@ -31,7 +31,7 @@ csp.extend(app, {
   policy: {
     directives: {
       'default-src': ['self'],
-      'style-src': ['self', 'unsafe-inline', 'https:'],
+      'style-src': ['self', 'https:'],
       'font-src': ['self', 'https://fonts.gstatic.com'],
       'script-src': [
         'self',
@@ -126,8 +126,7 @@ app.use(
     ],
   })
 );
-app.use(express.static(path.join(__dirname, "public")));
-
+app.use(express.static(path.join(__dirname, 'public')));
 //Routes
 
 app.get("/overview", (req, res) => {
